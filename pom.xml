@@ -94,13 +94,13 @@
 	<distributionManagement>
 	    <repository>
 	      <id>nexus</id>
-	      <name>vision-release</name>
+	      <name>Landmark Technologies Release Nexus Repository</name>
 	      <url>http://100.26.53.127:8081/repository/vision-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
-	      <name>vision-snapshot</name>
+	      <name>Landmark Technologies Snapshot Nexus Repository</name>
 	      <url>http://100.26.53.127:8081/repository/vision-snapshot/</url>
 	    </snapshotRepository>
 	    
