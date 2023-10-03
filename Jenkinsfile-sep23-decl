@@ -9,7 +9,7 @@ pipeline{
       stage('1.CloneCode'){
         steps{
             sh "echo 'cloning the latest application version' "
-            git "https://github.com/LandmakTechnology/maven-web-application"
+            git "https://github.com/sammav141/maven-web-application.git"
         }
       }
       stage('2.mvnBuild'){
@@ -32,7 +32,7 @@ pipeline{
       }
       stage('5.Deploy2UAT'){
         steps{
-            deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://34.219.51.216:8177/')], contextPath: null, war: 'target/*war'
+            deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.234.95.217:8177/')], contextPath: null, war: 'target/*war'
         }
       }
       stage('6.ManualApproval'){
@@ -45,7 +45,7 @@ pipeline{
       }
       stage('7.Deploy2Prod'){
         steps{
-            deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://34.219.51.216:8177/')], contextPath: null, war: 'target/*war'
+            deploy adapters: [tomcat9(credentialsId: 'tomcat-credentials', path: '', url: 'http://18.234.95.217:8177/')], contextPath: null, war: 'target/*war'
          }
       }
     }
@@ -53,7 +53,7 @@ pipeline{
         always{
   emailext body: '''Hi Team,
 
-  The build and Deployment status for is a success.
+  The build and Deployment status is a success.
 
   Regards,
   Landmark Technologies ''', recipientProviders: [buildUser(), contributor(), developers(), requestor()], subject: 'build and deployment status', to: 'mylandmarktech@gmail.com'
